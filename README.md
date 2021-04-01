@@ -1,5 +1,5 @@
-# OdooExternalAPI
-External API for create, read, write, delete (CRUD) record of Odoo through your own third-party app or module. 
+# Odoo XML-RPC Connection With Python
+XML-RPC connection for External API to create, read, write, delete (CRUD) record of Odoo through your own external third-party app or module using python programming language.
 
 Please read this README file thoroughly. All files in `main` are using the same var and if you put everything into one .py file it should be work (tested using python 3.9). In order to work, you should add [main configuration](#Main-Configuration) below to your .py files first. Then, you can add [additional configuration](#Additional-configuration) based on what you need.
 
