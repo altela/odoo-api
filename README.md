@@ -10,6 +10,6 @@ To run the scripts, type `python3 -m your_file.py`
 
 ## ADDITIONAL CONFIGURATION
 1. [Create Quotation](https://github.com/Altela/odooExternalAPI/blob/main/create_quotation.py)
-2. [Printing Partner List](https://github.com/Altela/odooExternalAPI/blob/main/printing_partner.py)
+2. [List Partner](https://github.com/Altela/odooExternalAPI/blob/main/list_partner.py)
 3. [Create Partner](https://github.com/Altela/odooExternalAPI/blob/main/create_partner.py)
 4. [Printing Product](https://github.com/Altela/odooExternalAPI/blob/main/printing_product.py)
