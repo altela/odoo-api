@@ -2,14 +2,14 @@
 models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
 new_quotation = models.execute_kw(db, uid, password, 'sale.order', 'create', [{
     'state': "draft", #Select either "sent", "sale", "done", "cancel"
-    'partner_id': customerID, #Customer ID
+    'partner_id': 4218, #Customer ID
     'client_order_ref': "000000", #Order Reference Number
     'picking_policy': "direct", #select either "direct" or "one"  
     'order_line' : [
         # First line of Order Lines
         (0, 0, {    
-            'product_id': productID, #insert product ID
-            'product_uom_qty': desiredQty, #insert product qty
+            'product_id': 2294, #insert product ID
+            'product_uom_qty': 20, #insert product qty
             #'price_unit': desiredPrice,
             #'discount' : desiredDisc,
             #'tax_id': taxID,
@@ -18,14 +18,24 @@ new_quotation = models.execute_kw(db, uid, password, 'sale.order', 'create', [{
         
         # Second line of Order Lines
         (0, 0, {    
-            'product_id': productID, #insert product ID
-            'product_uom_qty': desiredQty, #insert product qty
+            'product_id': 2295, #insert product ID
+            'product_uom_qty': 50, #insert product qty
             #'price_unit': desiredPrice,
             #'discount' : desiredDisc,
             #'tax_id': taxID,
             }
         )
-
+    ],
+    
+    #Optional Products
+    'sale_order_option_ids':[
+        (0, 0, {
+            'product_id': 2285, #insert product ID
+            'product_uom_qty': 100, #insert product qty
+            'price_unit': 100000,
+            #'name': ,
+            'uom_id' : 31,
+        })
     ]
 
 #    'commitment_date': 21-12-31,
