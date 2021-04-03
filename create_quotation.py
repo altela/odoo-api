@@ -1,17 +1,46 @@
 # Creating Quotation
 models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
 new_quotation = models.execute_kw(db, uid, password, 'sale.order', 'create', [{
-    'partner_id': 4444, #Customer ID
+    'state': "draft", #Select either "sent", "sale", "done", "cancel"
+    'partner_id': customerID, #Customer ID
     'client_order_ref': "000000", #Order Reference Number
-    'picking_policy': "direct", #select either "direct" or "one"    
- #   'commitment_date': 
+    'picking_policy': "direct", #select either "direct" or "one"  
     'order_line' : [
+        # First line of Order Lines
         (0, 0, {    
             'product_id': productID, #insert product ID
-            'product_uom_qty': qty #insert product qty
+            'product_uom_qty': desiredQty, #insert product qty
+            #'price_unit': desiredPrice,
+            #'discount' : desiredDisc,
+            #'tax_id': taxID,
+            }
+        ),
+        
+        # Second line of Order Lines
+        (0, 0, {    
+            'product_id': productID, #insert product ID
+            'product_uom_qty': desiredQty, #insert product qty
+            #'price_unit': desiredPrice,
+            #'discount' : desiredDisc,
+            #'tax_id': taxID,
             }
         )
+
     ]
+
+#    'commitment_date': 21-12-31,
+#    'date_order': 2021-10-10,
+#    'validity_date': 2021-10-10,
+#    'pricelist_id': pricelistID,
+#    'fiscal_position_id': fiscalID,
+#    'payment_term_id: paymentTermID,
+#    'user_id': salesPersonID,
+#    'team_id': salesTeamID,
+#    'carrier_id' : deliveryMethodID,
+#    'require_signature': True,
+#    'require_payment': True,
+#    'analytic_account_id': analyticAccountID,
+#    'origin': "sourceDocumentNumber"
 }])
 
  # Fill in partner_id with your partner ID
