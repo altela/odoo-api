@@ -28,15 +28,17 @@ new_quotation = models.execute_kw(db, uid, password, 'sale.order', 'create', [{
     ],
     
     #Optional Products
-    'sale_order_option_ids':[
-        (0, 0, {
-            'product_id': 2285, #insert product ID
-            'product_uom_qty': 100, #insert product qty
-            'price_unit': 100000,
-            #'name': ,
-            'uom_id' : 31,
-        })
-    ]
+    #Every record you want to put into Optional Products is mandatory so you cannot skip one of these dictionary below.
+    #
+    #'sale_order_option_ids':[
+    #    (0, 0, {
+    #        'product_id': 2285, #insert product ID
+    #        'product_uom_qty': 100, #insert product qty
+    #        'price_unit': 100000,
+    #        'name': , #in case you want to put name here, you must do some SEARCH and READ the ID then you can pull the name of product here.
+    #        'uom_id' : 31,
+    #    })
+    #]
 
 #    'commitment_date': 21-12-31,
 #    'date_order': 2021-10-10,
