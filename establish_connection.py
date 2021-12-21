@@ -12,6 +12,10 @@ password = 'yourPassword'
 # Fill password with password
 
 # Logging in Connection
+<<<<<<< HEAD
+=======
+import xmlrpc.client
+>>>>>>> 5f330c4c2c3bac2e96e9338925979f69fd5de120
 models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
 common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url))
 uid = common.authenticate(db, username, password, {})
