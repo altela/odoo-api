@@ -1,9 +1,14 @@
-from establish_con import url, db, password, username, common, uid, xmlrpc
+import xmlrpc.client
+from endpoint import models
+from establish import *
 
-models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
 new_memo = models.execute_kw(db, uid, password, 'note.note', 'create', [{
 
-    'memo' : "what",
-    #'stage_id' : #insert note id 
+     'memo' : "The title of the memo",
+    #'stage_id' : yourMemoID
 
 }])
+
+# Description
+# Memo 		= The title of the memo
+# stage_id	= The state id of the memo
