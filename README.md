@@ -1,18 +1,64 @@
-# Odoo XML-RPC Connection With Python
-XML-RPC connection for External API to create, read, write, delete (CRUD) record of Odoo through your own external third-party app or module using python programming language. If you willing to develop and add more option, please refer to [Odoo API Documentation](https://www.odoo.com/documentation/12.0/webservices/odoo.html) & [Odoo ORM API Documentation](https://www.odoo.com/documentation/12.0/reference/orm.html)
+# Odoo API XML-RPC Connection With Python
+XML-RPC connection for External API to create, read, write, delete (CRUD) record of Odoo through your own external third-party app or module using python programming language. 
 
-Please read this README file thoroughly. All files in `main` are using the same var and if you put everything into one .py file it should be work (tested using python 3.9). In order to work, you should add [main configuration](#Main-Configuration) below to your .py files first. Then, you can add [additional configuration](#Additional-configuration) based on what you need.
+[View Changelog](https://github.com/Altela/odoo-api/blob/main/changelog.md)
 
-To run the scripts, type `python3 -m your_file.py`
+### Clone The Project
 
-## MAIN CONFIGURATION
-1. [Establisihing Connection & Login from your third party to odoo](https://github.com/Altela/odooExternalAPI/blob/main/establish_connection.py)
+    git clone https://github.com/Altela/odoo-api.git
 
-## ADDITIONAL CONFIGURATION
-1. [Create Quotation](https://github.com/Altela/odooExternalAPI/blob/main/create_quotation.py)
-2. [Create Partner](https://github.com/Altela/odooExternalAPI/blob/main/create_partner.py)
-3. [Create Memo](https://github.com/Altela/odooExternalAPI/blob/main/create_memo.py)
-4. [Create Product](https://github.com/Altela/odooExternalAPI/blob/main/create_product.py)
-5. [Create Helpdesk Ticket](https://github.com/Altela/odooExternalAPI/blob/main/create_ticket_helpdesk.py)
-6. [List Partner](https://github.com/Altela/odooExternalAPI/blob/main/list_partner.py)
-7. [Printing Product](https://github.com/Altela/odooExternalAPI/blob/main/printing_product.py)
+### Modify `connection.py`
+    url = 'https://yourDomain-or-yourIP'
+    db = 'yourDatabaseName'
+    username = 'yourOdooInternalUser'
+    password = 'yourPassword'
+
+### Get Into The Project
+    cd odoo-api
+
+### Run The Script
+    python3 -m your_file.py
+
+# Files Information
+
+There are two kind of files, it's `Mandatory Files` and `Query Files`. 
+
+### Mandatory Files
+This three files will be used to establish connection between your Odoo server and app you build. You just have to edit the `connection.py` files as previous instruction tells you. 
+
+The `connection.py` will pass the information to `endpoint.py`. When you run the `Query Files`, `establish.py` will be triggered and requesting information from `connection,py` and `endpoint.py`. This will gives you credential to log into Odoo and execute the Queries.
+
+- [Connection File](https://github.com/Altela/odoo-api/blob/main/connection.py)
+- [Endpoint File](https://github.com/Altela/odoo-api/blob/main/endpoint.py)
+- [Establish Connection File](https://github.com/Altela/odoo-api/blob/main/establish.py)
+
+### Query Files
+This is the files that has queries to CRUD.
+
+  Contact App
+  - [Search Partner](https://github.com/Altela/odoo-api/blob/main/partner_list.py)
+  - [Create Partner](https://github.com/Altela/odoo-api/blob/main/partner_create.py)
+
+
+  Sales App
+  - [Create Quotation](https://github.com/Altela/odoo-api/blob/main/quotation_create.py)
+
+  Inventory App
+  - [Search Master Product](https://github.com/Altela/odoo-api/blob/main/product_list.py)
+  - [Create Master Product](https://github.com/Altela/odoo-api/blob/main/product_create.py)
+
+  Purchase App
+  - [Create RFQ](https://github.com/Altela/odoo-api/blob/main/rfq_create.py)
+
+  Memo App
+  - [Create Memo](https://github.com/Altela/odoo-api/blob/main/memo_create.py)
+
+  Helpdesk App
+  - [Create Helpdesk Ticket](https://github.com/Altela/odoo-api/blob/main/ticket_helpdesk_create.py)
+
+# Contribution
+If you wish to contribute, you can fork this repository, and please see this [to-do lists](https://github.com/Altela/odoo-api/issues/15).
+
+For reference, here's the [Odoo API Documentation](https://www.odoo.com/documentation/12.0/webservices/odoo.html) & [Odoo ORM API Documentation](https://www.odoo.com/documentation/12.0/reference/orm.html).
+
+Create your script file and make a pull request.
