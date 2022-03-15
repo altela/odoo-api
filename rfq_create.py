@@ -4,20 +4,32 @@ from establish import *
 
 new_rfq = models.execute_kw(db, uid, password, 'purchase.order', 'create', [{
     'state': "draft", 
-    'partner_id': yourPartnerID, 
+    'partner_id': 18,
     'client_order_ref': "000000",
     'picking_policy': "direct",
     'order_line' : [
         # First line of Order Lines
-        (0, 0, {    
-             'product_id': yourProductOD,
-             'name': thisProductNameWillFollowProductIDAbove,
-             'product_qty': 10,
-             'date_planned': "06/05/2021 15:28:55",
-             'product_uom' : "Each"
+        (0, 0, {
+            'product_id': product_ID,
+            'name': "Your Product Name",
+            'product_qty': 10,
+            'date_planned': "06/05/2021 15:28:55",
+            'product_uom': UnitOfMeasure_ID,
+            'price_unit': 20000,
             }
         ),
-    ],  
+
+        # Second line of Order Lines
+        (0, 0, {
+            'product_id': product_ID,
+            'name': "Your Product Name",
+            'product_qty': 10,
+            'date_planned': "06/05/2021 15:28:55",
+            'product_uom': UnitOfMeasure_ID,
+            'price_unit': 20000,
+        }
+         )
+    ],
 }])
 
 # Description
