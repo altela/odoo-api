@@ -1,14 +1,17 @@
-# Creating Quotation
-models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
+import xmlrpc.client
+from endpoint import models
+from establish import *
+from datetime import datetime
+
 new_quotation = models.execute_kw(db, uid, password, 'sale.order', 'create', [{
     'state': "draft", #Select either "sent", "sale", "done", "cancel"
-    'partner_id': 4218, #Customer ID
+    'partner_id': yourPartnerID, #Customer ID
     'client_order_ref': "000000", #Order Reference Number
     'picking_policy': "direct", #select either "direct" or "one"  
     'order_line' : [
         # First line of Order Lines
         (0, 0, {    
-            'product_id': 2294, #insert product ID
+            'product_id': product_id, #insert product ID
             'product_uom_qty': 20, #insert product qty
             #'price_unit': desiredPrice,
             #'discount' : desiredDisc,
@@ -18,7 +21,7 @@ new_quotation = models.execute_kw(db, uid, password, 'sale.order', 'create', [{
         
         # Second line of Order Lines
         (0, 0, {    
-            'product_id': 2295, #insert product ID
+            'product_id': product_id, #insert product ID
             'product_uom_qty': 50, #insert product qty
             #'price_unit': desiredPrice,
             #'discount' : desiredDisc,
@@ -40,9 +43,9 @@ new_quotation = models.execute_kw(db, uid, password, 'sale.order', 'create', [{
     #    })
     #]
 
-#    'commitment_date': 21-12-31,
-#    'date_order': 2021-10-10,
-#    'validity_date': 2021-10-10,
+   # 'commitment_date': 21-12-31,
+    'date_order': "06/05/2021 15:28:55",
+    'validity_date': "2021-10-10",
 #    'pricelist_id': pricelistID,
 #    'fiscal_position_id': fiscalID,
 #    'payment_term_id: paymentTermID,
