@@ -58,6 +58,7 @@ This is the files that has queries to CRUD.
 
   Attendance App
   - [Create Attendance](https://github.com/altela/odoo-api/blob/main/attendance_create.py)
+  - [Update Attendance](https://github.com/altela/odoo-api/blob/main/attendance_list.py)
 
 # Contribution
 If you wish to contribute, you can fork this repository, and please see this [to-do lists](https://github.com/Altela/odoo-api/issues/15).
